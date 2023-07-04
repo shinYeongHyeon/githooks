@@ -11,4 +11,5 @@ cd $projectPath
 mkdir -p git-hooks
 cp -R $currentPath/git-hooks/* ./git-hooks
 cp -R git-hooks/* .git/hooks
+cp $currentPath/git-hooks.sh ./git-hooks.sh
 chmod ug+x .git/hooks/*
