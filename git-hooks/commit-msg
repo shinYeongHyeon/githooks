@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+require 'colorize' # Colorized Line
+
+$regex =  /^\(#[0-9]+\)\s[\d\D]*/
+
+# enforced custom commit message format
+def check_message_format
+  message_file = ARGV[0]
+  message = File.read(message_file)
+
+  if !$regex.match(message)
+      puts "!!주의!! 커밋메시지 규칙에 어긋납니다.".red # If you dont wanna be colorized console, delete .red
+      puts ""
+      puts "[규칙]"
+      puts "변수명 : ##변수##".blue # If you dont wanna be colorized console, delete .blue
+      puts ""
+      puts "(###이슈번호##) ##커밋메시지##"
+      puts ""
+      puts "예시".blue # If you dont wanna be colorized console, delete .blue
+      puts "(#152) Initial Commit"
+      exit 1
+  end
+end
+
+check_message_format
