@@ -1,9 +1,23 @@
 #!/usr/bin/env ruby
+
+######################################
+########## About commit-msg ##########
+######################################
+
+# This hook RUNS after writing commit message
+# and take the only one parameter shown in code ARGV[0]
+# The parameter is the path to a temporary file that contains the commit message
+# IF, THIS SCRIPT EXITS NON-ZERO like exit 1 that shown in code, Git abort the commit process.
+# SO, THIS HOOK usually used to validate commit messages.
+
+######################################
+########## About commit-msg ##########
+######################################
+
 require 'colorize' # Colorized Line
 
 $regex =  /^\(#[0-9]+\)\s[\d\D]*/
 
-# enforced custom commit message format
 def check_message_format
   message_file = ARGV[0]
   message = File.read(message_file)
