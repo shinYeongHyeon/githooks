@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Enter Your Project ABSOLUTE PATH: "
+echo "Enter Your Project ABSOLUTE PATH: (not using started \"/~\", must use like \"/Users/bbodevelopers/\") "
 read -r projectPath
 
 currentPath=$PWD
